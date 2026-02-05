@@ -1,0 +1,21 @@
+letstalkandvote/
+│
+├─ /pages
+│   ├─ index.js       # Startseite mit Multi-Post-Feed
+│   ├─ thread/[id].js # Thread-Seite mit Kommentaren & Votes
+│
+├─ /components
+│   ├─ Card.js        # Post-Karten
+│   ├─ AdminPanel.js  # Admin-Dashboard
+│   └─ VoteButton.js
+│
+├─ /data
+│   ├─ draftPosts.json   # KI-Entwürfe
+│   └─ categories.json
+│
+├─ /styles
+│   └─ globals.css
+│
+├─ next.config.js
+├─ package.json
+└─ README.md
