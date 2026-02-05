@@ -1,0 +1,7 @@
+/pages
+/components
+/data
+/styles
+package.json
+next.config.js
+README.md
