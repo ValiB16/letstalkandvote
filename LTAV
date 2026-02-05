@@ -1,0 +1,22 @@
+import Head from 'next/head';
+import Card from '../components/Card';
+import draftPosts from '../data/draftPosts.json';
+
+export default function Home() {
+  return (
+    <>
+      <Head>
+        <title>Let’s Talk and Vote</title>
+        <meta name="description" content="Diskutiere, vote und teile deine Meinung anonym!" />
+      </Head>
+      
+      <main style={{ maxWidth: '900px', margin: '0 auto', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+        <h1 style={{ textAlign: 'center', marginBottom: '40px' }}>Let’s Talk and Vote</h1>
+        
+        {draftPosts.map((post) => (
+          <Card key={post.id} post={post} />
+        ))}
+      </main>
+    </>
+  );
+}
