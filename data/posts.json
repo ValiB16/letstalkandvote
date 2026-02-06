@@ -3,8 +3,31 @@
     "id": 1,
     "category": "Society",
     "statement": "People aren’t more honest online — they’re just louder because outrage gets rewarded.",
-    "context": "Social media promised everyone a voice. But attention is the real currency. Agree or disagree?",
-    "image": "/images/post-001.jpg",
+    "context": "Social media promised everyone a voice. But attention is the real currency.",
+    "agreeLabel": "Agree",
+    "disagreeLabel": "Disagree"
+  },
+  {
+    "id": 2,
+    "category": "Work",
+    "statement": "Most people don’t hate work — they hate feeling trapped in it.",
+    "context": "Jobs aren’t just about money anymore. They’re about dignity, time, and freedom.",
+    "agreeLabel": "Agree",
+    "disagreeLabel": "Disagree"
+  },
+  {
+    "id": 3,
+    "category": "Money",
+    "statement": "Crypto didn’t democratize money — it just gave gambling a nicer logo.",
+    "context": "Some call it the future. Others call it expensive optimism. Which is it?",
+    "agreeLabel": "Agree",
+    "disagreeLabel": "Disagree"
+  },
+  {
+    "id": 4,
+    "category": "Sports",
+    "statement": "Modern sports aren’t about competition anymore — they’re about money and hype.",
+    "context": "The game is still there… but the business is louder. Does that ruin it?",
     "agreeLabel": "Agree",
     "disagreeLabel": "Disagree"
   }
