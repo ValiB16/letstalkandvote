@@ -2,48 +2,106 @@ import posts from "../data/posts.json";
 
 export default function Home() {
   return (
-    <div style={{ maxWidth: 900, margin: "40px auto", padding: 20, fontFamily: "Arial, sans-serif" }}>
-      <h1 style={{ marginBottom: 20 }}>Let’s Talk and Vote</h1>
+    <div style={{ fontFamily: "Arial, sans-serif", background: "#0b0b0c", minHeight: "100vh", color: "#fff" }}>
+      <header style={{ maxWidth: 1100, margin: "0 auto", padding: "28px 18px 10px" }}>
+        <h1 style={{ margin: 0, fontSize: 28, letterSpacing: 0.2 }}>Let’s Talk and Vote</h1>
+        <p style={{ marginTop: 8, opacity: 0.75 }}>
+          Anonymous opinions. Quick votes. Real arguments.
+        </p>
+      </header>
 
-      {(!posts || posts.length === 0) ? (
-        <p style={{ opacity: 0.8 }}>No posts yet. Add some drafts and publish.</p>
-      ) : (
-        <div style={{ display: "grid", gap: 16 }}>
+      <main style={{ maxWidth: 1100, margin: "0 auto", padding: "12px 18px 60px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
           {posts.map((p) => (
-            <div
+            <article
               key={p.id}
               style={{
-                border: "1px solid #e5e5e5",
-                borderRadius: 12,
-                padding: 16,
-                boxShadow: "0 2px 10px rgba(0,0,0,0.05)"
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: 18,
+                overflow: "hidden",
+                background: "rgba(255,255,255,0.03)",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.35)"
               }}
             >
-              <h2 style={{ margin: "0 0 8px 0" }}>{p.title}</h2>
-              {p.description && (
-                <p style={{ whiteSpace: "pre-line", margin: "0 0 10px 0", opacity: 0.9 }}>
-                  {p.description}
-                </p>
-              )}
-              {p.cta && (
-                <div style={{ marginTop: 10, fontWeight: 600 }}>
-                  👉 {p.cta}
-                </div>
-              )}
-
-              {/* Vote Buttons (Platzhalter – echte Votes kommen im nächsten Schritt) */}
-              <div style={{ display: "flex", gap: 10, marginTop: 14 }}>
-                <button style={{ padding: "8px 12px", borderRadius: 10, border: "1px solid #ddd", cursor: "pointer" }}>
-                  👍 Agree
-                </button>
-                <button style={{ padding: "8px 12px", borderRadius: 10, border: "1px solid #ddd", cursor: "pointer" }}>
-                  👎 Disagree
-                </button>
+              <div style={{ aspectRatio: "16/9", background: "rgba(255,255,255,0.06)" }}>
+                {/* Bild optional */}
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={p.statement}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  />
+                ) : null}
               </div>
-            </div>
+
+              <div style={{ padding: 16 }}>
+                <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 10 }}>
+                  <span
+                    style={{
+                      fontSize: 12,
+                      padding: "4px 10px",
+                      borderRadius: 999,
+                      background: "rgba(255,255,255,0.08)",
+                      opacity: 0.9
+                    }}
+                  >
+                    {p.category || "General"}
+                  </span>
+                  <span style={{ fontSize: 12, opacity: 0.6 }}>ID #{p.id}</span>
+                </div>
+
+                <h2 style={{ margin: "0 0 10px 0", fontSize: 18, lineHeight: 1.25 }}>
+                  {p.statement}
+                </h2>
+
+                {p.context ? (
+                  <p style={{ margin: "0 0 14px 0", opacity: 0.78, fontSize: 14, lineHeight: 1.45 }}>
+                    {p.context}
+                  </p>
+                ) : null}
+
+                <div style={{ display: "flex", gap: 10 }}>
+                  <button
+                    style={{
+                      flex: 1,
+                      padding: "10px 12px",
+                      borderRadius: 12,
+                      border: "1px solid rgba(255,255,255,0.12)",
+                      background: "rgba(255,255,255,0.06)",
+                      color: "#fff",
+                      cursor: "pointer",
+                      fontWeight: 600
+                    }}
+                    onClick={() => alert("Vote saved (demo). Real votes next step.")}
+                  >
+                    👍 {p.agreeLabel || "Agree"}
+                  </button>
+
+                  <button
+                    style={{
+                      flex: 1,
+                      padding: "10px 12px",
+                      borderRadius: 12,
+                      border: "1px solid rgba(255,255,255,0.12)",
+                      background: "rgba(255,255,255,0.06)",
+                      color: "#fff",
+                      cursor: "pointer",
+                      fontWeight: 600
+                    }}
+                    onClick={() => alert("Vote saved (demo). Real votes next step.")}
+                  >
+                    👎 {p.disagreeLabel || "Disagree"}
+                  </button>
+                </div>
+
+                <div style={{ marginTop: 12, fontSize: 12, opacity: 0.6 }}>
+                  Comments coming next • Stay anonymous
+                </div>
+              </div>
+            </article>
           ))}
         </div>
-      )}
+      </main>
     </div>
   );
 }
